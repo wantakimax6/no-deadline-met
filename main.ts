@@ -29,6 +29,11 @@ if (/[\r\n]/.test(ENTRY)) {
     "Gate rule failed: entry must be a single line with no newline characters.",
   );
 }
+if (/https?:\/\//.test(ENTRY)) {
+  throw new Error(
+    "Gate rule failed: entry must contain no link.",
+  );
+}
 if (ENTRY.trim().length === 0) {
   throw new Error("Gate rule failed: entry must not be only whitespace.");
 }
